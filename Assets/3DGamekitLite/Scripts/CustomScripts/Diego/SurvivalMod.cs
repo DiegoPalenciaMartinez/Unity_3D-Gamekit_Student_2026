@@ -5,17 +5,20 @@ namespace _3DGamekitLite.Scripts.CustomScripts.Diego
 {
     public class SurvivalMod : MonoBehaviour
     {
-        [SerializeField] private float hunger;
+        [SerializeField] public float hunger;
         [SerializeField] private float speed;
         [SerializeField]  private int damage;
-        [SerializeField] public GameObject player;
         
-        Damageable.DamageMessage msg;
-        private Damageable d;
+        private GameObject player;
+        private Damageable.DamageMessage msg;
+        public float timer;
         
-        public SurvivalMod()
+        void Start()
         {
+            player = GameObject.FindGameObjectWithTag("Player");
+            
             hunger = 0;
+            timer = 5f;
             
             msg = new Damageable.DamageMessage()
             {
@@ -24,31 +27,27 @@ namespace _3DGamekitLite.Scripts.CustomScripts.Diego
                 direction = Vector3.up,
                 stopCamera = false
             };
-            
         }
 
-        void Start()
-        {
-           if(player != null) d = player.GetComponent<Damageable>(); 
-        }
         void Update()
         {
             hunger += (Time.deltaTime * speed);
-            Debug.Log("Hunger: " +  hunger);
-            
-            if (hunger > 100)
+            Debug.Log("Hunger: " + hunger);
+
+            timer -= Time.deltaTime;
+                
+            if (hunger > 100 && timer <= 0)
             {
-                if (d != null)
-                {
-                    
-                    d.ApplyDamage(msg);
-                    hunger = 0;
-                }
-                
-                
+                player.GetComponent<Damageable>().ApplyDamage(msg);
+                timer = 5f;
             }
+            
         }
-        
-        
+
+        public void ResetHunger()
+        {
+            hunger = 0;
+            timer = 5f;
+        }
     }
 }
