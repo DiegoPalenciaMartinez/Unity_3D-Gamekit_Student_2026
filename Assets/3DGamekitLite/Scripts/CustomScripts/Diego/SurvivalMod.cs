@@ -32,7 +32,7 @@ namespace _3DGamekitLite.Scripts.CustomScripts.Diego
         void Update()
         {
             hunger += (Time.deltaTime * speed);
-            Debug.Log("Hunger: " + hunger);
+            //Debug.Log("Hunger: " + hunger);
 
             timer -= Time.deltaTime;
                 
