@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55126aa12bc7d3e45b94f3c75dc6586e, type: 3}
+  m_Name: InteractableAudio
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableAudio
+  pickUpHealth:
+    Guid:
+      Data1: 1935378777
+      Data2: 1229995102
+      Data3: 1016937632
+      Data4: 994717240
+    Path: event:/health
+  boxDestroy:
+    Guid:
+      Data1: -385028824
+      Data2: 1215223500
+      Data3: -1104702573
+      Data4: -1300648796
+    Path: event:/Test
